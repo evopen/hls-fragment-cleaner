@@ -54,7 +54,7 @@ async fn run() -> anyhow::Result<()> {
     }
 }
 
-#[instrument]
+#[instrument(level = "trace")]
 async fn clean_task() -> anyhow::Result<()> {
     let ts_matcher = globset::GlobBuilder::new("*.ts").build()?.compile_matcher();
     let current_time = std::time::SystemTime::now();
